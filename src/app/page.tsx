@@ -1,14 +1,22 @@
-import Image from "next/image";
+"use client";
+import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-      </div>
-    </main>
+    <section className="text-center py-20 bg-gradient-to-r from-gray-50 to-red-50">
+      <h1 className="text-4xl font-bold text-red-500 mb-4">
+        Welcome to Our Matrimony Site
+      </h1>
+      <p className="text-lg text-gray-700 mb-8">
+        Discover your perfect match. Join our community and find your life
+        partner today.
+      </p>
+      <Link
+        href="/register"
+        className="px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600"
+      >
+        Get Started
+      </Link>
+    </section>
   );
 }
