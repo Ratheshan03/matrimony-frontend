@@ -1,11 +1,11 @@
 "use client";
 
 import type { Metadata } from "next";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 import "../styles/globals.css";
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: "Matrimony Site",
   description: "Find your perfect match on our matrimony platform.",
 };
