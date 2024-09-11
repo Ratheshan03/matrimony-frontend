@@ -1,7 +1,9 @@
+/* Tailwind base styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Global styles */
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -16,11 +18,19 @@
   }
 }
 
+/* Apply CSS Reset */
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   @apply antialiased;
   font-family: "Inter", sans-serif;
 }
 
+/* Link styling */
 a {
   @apply text-gray-900 hover:underline;
 }

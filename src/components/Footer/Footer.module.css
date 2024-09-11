@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 1rem;
 }
 
 .links {
@@ -11,12 +12,46 @@
   text-align: center;
 }
 
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Stacks the sections vertically by default */
+  gap: 2rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.legal-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (min-width: 768px) {
-  .footer {
-    flex-direction: row;
-    justify-content: space-between;
+  .footer-container {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* Adjusts to three columns on medium screens */
+    gap: 2rem;
+    justify-items: center;
   }
-  .links {
-    text-align: left;
+}
+
+@media (min-width: 1024px) {
+  .footer-container {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* Retain 3 columns for large screens */
+    justify-items: center; /* Center the content within each grid cell */
+    text-align: center; /* Center-aligns text within each section */
+  }
+
+  .legal-section {
+    align-items: center; /* Centers the text horizontally */
+    justify-content: center; /* Centers the text content vertically */
+    text-align: center; /* Ensures text remains centered */
   }
 }
