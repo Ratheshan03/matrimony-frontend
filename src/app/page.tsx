@@ -8,9 +8,9 @@ export default function HomePage() {
       {/* Hero Section */}
       <section
         className="relative h-screen flex items-center justify-center text-center bg-cover bg-center"
-        style={{ backgroundImage: `url('/path/to/hero-bg.jpg')` }}
+        style={{ backgroundImage: `url('../public/images/hero-bg.jpg')` }}
       >
-        <div className="absolute inset-0 bg-black opacity-50"></div>{" "}
+        <div className="absolute inset-0 bg-dark opacity-60"></div>{" "}
         {/* Overlay */}
         <div className="relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
@@ -21,7 +21,7 @@ export default function HomePage() {
           </p>
           <Link
             href="/register"
-            className="px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300"
+            className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-accent transition duration-300"
           >
             Register Now
           </Link>
@@ -29,11 +29,11 @@ export default function HomePage() {
       </section>
 
       {/* About Us Section */}
-      <section className="h-screen flex items-center py-16 px-4 bg-gray-100 text-center md:text-left">
+      <section className="h-screen flex items-center py-16 px-4 bg-backgroundLight text-center md:text-left">
         <div className="container mx-auto flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0">
             <Image
-              src="/path/to/about-us-image.jpg" // Placeholder image
+              src="/images/about-us-image.jpg" // Placeholder image
               alt="About Us"
               width={500}
               height={300}
@@ -41,18 +41,18 @@ export default function HomePage() {
             />
           </div>
           <div className="md:w-1/2 md:pl-8">
-            <h2 className="text-3xl font-bold text-red-500 mb-4">About Us</h2>
-            <p className="text-gray-700 mb-4">
+            <h2 className="text-3xl font-bold text-primary mb-4">About Us</h2>
+            <p className="text-dark mb-4">
               We are dedicated to helping people find their life partners
               through our trusted and user-friendly platform.
             </p>
-            <p className="text-gray-700 mb-4">
+            <p className="text-dark mb-4">
               Our mission is to bring people together and make the journey of
               finding love an enjoyable and fulfilling experience.
             </p>
             <Link
               href="/about"
-              className="px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300"
+              className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-accent transition duration-300"
             >
               Read More
             </Link>
@@ -60,23 +60,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services/Specialty Section */}
+      {/* Our Specialty Section */}
       <section className="h-screen py-16 px-4 bg-white flex flex-col items-center justify-center text-center">
-        <h2 className="text-3xl font-bold text-red-500 mb-8">Our Specialty</h2>
+        <h2 className="text-3xl font-bold text-primary mb-8">Our Specialty</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {["Service 1", "Service 2", "Service 3"].map((service, index) => (
+          {[
+            "Personalized Matchmaking",
+            "Advanced Search Filters",
+            "Verified Profiles",
+          ].map((service, index) => (
             <div
               key={index}
-              className="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="bg-backgroundLight p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
             >
               <Image
-                src={`/path/to/logo-${index + 1}.png`} // Placeholder icons
+                src={`/images/logo-${index + 1}.png`} // Placeholder icons
                 alt={`Service ${index + 1}`}
                 width={80}
                 height={80}
                 className="mx-auto mb-4"
               />
-              <h3 className="text-xl font-semibold mb-2">{service}</h3>
+              <h3 className="text-xl font-semibold text-dark mb-2">
+                {service}
+              </h3>
               <p className="text-gray-600">
                 Description of {service}. Highlighting our uniqueness and
                 specialties in providing the best services.
@@ -89,7 +95,7 @@ export default function HomePage() {
       {/* Success Stories Section */}
       <section className="h-screen py-16 px-4 bg-gray-50 flex items-center">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-red-500 mb-8 text-center">
+          <h2 className="text-3xl font-bold text-primary mb-8 text-center">
             Success Stories
           </h2>
           <div className="overflow-x-auto">
@@ -100,7 +106,7 @@ export default function HomePage() {
                   className="min-w-[300px] bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
                 >
                   <Image
-                    src={`/path/to/story-${story}.jpg`} // Placeholder profile pics
+                    src={`/images/story-${story}.jpg`} // Placeholder profile pics
                     alt={`Success Story ${story}`}
                     width={150}
                     height={150}
@@ -120,15 +126,15 @@ export default function HomePage() {
 
       {/* Profiles Section */}
       <section className="h-screen py-16 px-4 bg-white flex items-center justify-center text-center">
-        <h2 className="text-3xl font-bold text-red-500 mb-8">Profiles</h2>
+        <h2 className="text-3xl font-bold text-primary mb-8">Profiles</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[1, 2, 3].map((profile) => (
             <div
               key={profile}
-              className="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="bg-backgroundLight p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
             >
               <Image
-                src={`/path/to/profile-${profile}.png`} // Placeholder profile pictures
+                src={`/images/profile-${profile}.png`} // Placeholder profile pictures
                 alt={`Profile ${profile}`}
                 width={80}
                 height={80}
@@ -143,15 +149,15 @@ export default function HomePage() {
         </div>
         <Link
           href="/profiles"
-          className="mt-8 px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300"
+          className="mt-8 px-6 py-2 bg-primary text-white rounded-lg hover:bg-accent transition duration-300"
         >
           Check Out More Profiles
         </Link>
       </section>
 
-      {/* Questions Section */}
-      <section className="h-screen py-16 px-4 bg-gray-100 flex flex-col items-center justify-center text-center">
-        <h2 className="text-3xl font-bold text-red-500 mb-8">
+      {/* Frequently Asked Questions Section */}
+      <section className="h-screen py-16 px-4 bg-backgroundLight flex flex-col items-center justify-center text-center">
+        <h2 className="text-3xl font-bold text-primary mb-8">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4 w-full max-w-3xl">
@@ -186,13 +192,13 @@ export default function HomePage() {
               className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               <details className="group">
-                <summary className="cursor-pointer text-lg font-semibold text-red-500 flex justify-between items-center">
+                <summary className="cursor-pointer text-lg font-semibold text-primary flex justify-between items-center">
                   {item.question}
                   <span className="ml-2 text-gray-500 group-open:rotate-180 transition-transform duration-300">
                     ▼
                   </span>
                 </summary>
-                <p className="text-gray-700 mt-2">{item.answer}</p>
+                <p className="text-dark mt-2">{item.answer}</p>
               </details>
             </div>
           ))}

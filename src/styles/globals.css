@@ -1,46 +1,126 @@
-/* Tailwind base styles */
+/* Importing Tailwind CSS layers */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global styles */
+/* Font Imports */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+/* Root Variables for Colors */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --primary-color: #ff9f1c;
+  --secondary-color: #ffbf69;
+  --accent-color: #2ec4b6;
+  --background-light: #cbf3f0;
+  --dark-color: #023047;
+  --white-color: #ffffff;
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* Scrollbar Styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--background-light);
 }
 
-/* Apply CSS Reset */
-body,
-html {
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--background-light);
+  border-radius: 10px;
+}
+
+/* Basic Typography */
+body {
+  @apply antialiased;
+  font-family: var(--font-primary);
+  background: linear-gradient(
+    to right,
+    var(--background-light),
+    var(--white-color)
+  );
+  color: var(--dark-color);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-secondary);
+  color: var(--primary-color);
   margin: 0;
   padding: 0;
 }
 
-body {
-  @apply antialiased;
-  font-family: "Inter", sans-serif;
+p,
+a,
+li,
+span {
+  font-family: var(--font-primary);
+  color: var(--dark-color);
 }
 
-/* Link styling */
+/* Link Styling */
 a {
-  @apply text-gray-900 hover:underline;
+  @apply transition duration-300;
+  text-decoration: none;
+  color: var(--secondary-color);
 }
 
+a:hover {
+  color: var(--primary-color);
+}
+
+/* Button Styling */
 button {
-  @apply focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50;
+  @apply focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50;
+  font-family: var(--font-primary);
 }
 
+/* Input & Select Elements */
+input,
+select,
+textarea {
+  border: 1px solid var(--primary-color);
+  @apply p-2 rounded-md focus:ring-2 focus:ring-primary;
+}
+
+/* Marquee Colors */
+marquee {
+  background: var(--primary-color);
+  color: var(--white-color);
+  font-family: var(--font-secondary);
+}
+
+/* Custom Utility Classes */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+/* Updated Dark Mode Adjustments */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #cbf3f0;
+    --background-light: #023047;
+    --dark-color: #ffffff;
+    --foreground-rgb: 255, 255, 255; /* Integrating your previous variable */
+    --background-start-rgb: 0, 0, 0; /* Integrating your previous variable */
+    --background-end-rgb: 0, 0, 0; /* Integrating your previous variable */
   }
 }
