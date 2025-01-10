@@ -9,12 +9,13 @@
 
 /* Root Variables for Colors */
 :root {
-  --primary-color: #ff9f1c;
-  --secondary-color: #ffbf69;
-  --accent-color: #2ec4b6;
-  --background-light: #cbf3f0;
-  --dark-color: #023047;
-  --white-color: #ffffff;
+  --primary-color: #d4af37; /* Gold */
+  --secondary-color: #f8d49d; /* Light Yellow */
+  --accent-color: #eac8b0; /* Cream */
+  --background-light: #fff5e1; /* Off White */
+  --highlight-color: #f4a488; /* Light Reddish */
+  --dark-color: #000000; /* Black */
+  --white-color: #ffffff; /* White */
   --font-primary: "Poppins", sans-serif;
   --font-secondary: "Montserrat", sans-serif;
 }
@@ -82,7 +83,7 @@ a {
 }
 
 a:hover {
-  color: var(--primary-color);
+  color: var(--highlight-color);
 }
 
 /* Button Styling */
@@ -97,6 +98,7 @@ select,
 textarea {
   border: 1px solid var(--primary-color);
   @apply p-2 rounded-md focus:ring-2 focus:ring-primary;
+  background: var(--background-light);
 }
 
 /* Marquee Colors */
@@ -119,8 +121,5 @@ marquee {
     --primary-color: #cbf3f0;
     --background-light: #023047;
     --dark-color: #ffffff;
-    --foreground-rgb: 255, 255, 255; /* Integrating your previous variable */
-    --background-start-rgb: 0, 0, 0; /* Integrating your previous variable */
-    --background-end-rgb: 0, 0, 0; /* Integrating your previous variable */
   }
 }

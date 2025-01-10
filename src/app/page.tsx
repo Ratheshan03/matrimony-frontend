@@ -6,22 +6,22 @@ export default function HomePage() {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section
-        className="relative h-screen flex items-center justify-center text-center bg-cover bg-center"
-        style={{ backgroundImage: `url('../public/images/hero-bg.jpg')` }}
-      >
-        <div className="absolute inset-0 bg-dark opacity-60"></div>{" "}
-        {/* Overlay */}
-        <div className="relative z-10">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
+      <section className="relative h-screen flex items-center justify-center text-center bg-cover bg-center">
+
+        {/* Overlay for Darkening the Background */}
+        <div className="absolute inset-0 bg-black opacity-60 z-10"></div>
+
+        {/* Hero Content */}
+        <div className="relative z-20">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 animate-fadeIn">
             Welcome to Our Matrimony Site
           </h1>
-          <p className="text-lg md:text-xl text-gray-200 mb-8">
+          <p className="text-lg md:text-xl text-gray-200 mb-8 animate-fadeIn delay-300">
             Find your perfect match and start your journey today.
           </p>
           <Link
             href="/register"
-            className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-accent transition duration-300"
+            className="px-6 py-3 bg-primary text-white rounded-full shadow-lg hover:bg-accent transition-all duration-300 transform hover:scale-105"
           >
             Register Now
           </Link>
@@ -29,17 +29,20 @@ export default function HomePage() {
       </section>
 
       {/* About Us Section */}
-      <section className="h-screen flex items-center py-16 px-4 bg-backgroundLight text-center md:text-left">
+      <section className="flex items-center py-20 px-4 bg-backgroundLight text-center md:text-left relative">
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary to-secondary opacity-10 rounded-lg"></div>
+
         <div className="container mx-auto flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-8 md:mb-0">
+          <div className="md:w-1/2 mb-8 md:mb-0 relative group">
             <Image
-              src="/images/about-us-image.jpg" // Placeholder image
+              src="/images/img1.jpg"
               alt="About Us"
               width={500}
-              height={300}
-              className="rounded-lg shadow-lg"
+              height={500}
+              className="rounded-lg shadow-xl transition-transform duration-500 group-hover:scale-105"
             />
           </div>
+
           <div className="md:w-1/2 md:pl-8">
             <h2 className="text-3xl font-bold text-primary mb-4">About Us</h2>
             <p className="text-dark mb-4">
@@ -52,7 +55,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/about"
-              className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-accent transition duration-300"
+              className="px-6 py-2 bg-primary text-white rounded-full hover:bg-accent shadow-md transition duration-300 transform hover:scale-105"
             >
               Read More
             </Link>
