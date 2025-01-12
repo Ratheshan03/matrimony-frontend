@@ -58,69 +58,125 @@ export default function HomePage() {
       </section>
 
       {/* About Us Section */}
-      <section className="flex items-center py-20 px-4 bg-backgroundLight text-center md:text-left relative">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary to-secondary opacity-10 rounded-lg"></div>
+      <section className="relative h-screen px-6 md:px-12 lg:px-20 bg-gradient-to-br from-[#ffffff] via-[#f9f9f9] to-[#eeeeee] rounded-b-3xl shadow-lg overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 -z-10">
+          <div className="bg-gradient-to-r from-[#ffefd5] to-[#ffd1dc] opacity-40 absolute top-8 left-8 w-[400px] h-[400px] rounded-full filter blur-3xl"></div>
+          <div className="bg-gradient-to-b from-[#cce5ff] to-[#e6f7ff] opacity-30 absolute bottom-16 right-16 w-[350px] h-[350px] rounded-full filter blur-2xl"></div>
+        </div>
 
-        <div className="container mx-auto flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-8 md:mb-0 relative group">
-            <Image
-              src="/images/img1.jpg"
-              alt="About Us"
-              width={500}
-              height={500}
-              className="rounded-lg shadow-xl transition-transform duration-500 group-hover:scale-105"
-            />
+        {/* Content Container */}
+        <div className="relative z-20 container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12 h-full">
+          {/* Left Column: Image/Illustration */}
+          <div className="flex justify-center items-center relative">
+            <div className="relative group w-full max-w-md mx-auto">
+              <div className="absolute -top-8 -left-8 w-36 h-36 bg-gradient-to-br from-[#f9c2ff] to-[#ffab73] rounded-full filter blur-3xl group-hover:scale-110 transition-transform duration-500"></div>
+              <Image
+                src="/images/aboutus.jpg" // Placeholder for image
+                alt="About Us"
+                width={500}
+                height={500}
+                className="rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500"
+              />
+            </div>
           </div>
 
-          <div className="md:w-1/2 md:pl-8">
-            <h2 className="text-3xl font-bold text-primary mb-4">About Us</h2>
-            <p className="text-dark mb-4">
-              We are dedicated to helping people find their life partners
-              through our trusted and user-friendly platform.
+          {/* Right Column: Text Content */}
+          <div className="text-center lg:text-left space-y-6">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 tracking-wide">
+              Who We Are
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              We’re on a mission to connect people and help them discover
+              meaningful relationships through our unique and trusted platform.
             </p>
-            <p className="text-dark mb-4">
-              Our mission is to bring people together and make the journey of
-              finding love an enjoyable and fulfilling experience.
-            </p>
+            <div className="space-y-4">
+              <p className="text-gray-700 flex items-center justify-center lg:justify-start gap-4">
+                <span className="bg-primary text-white p-3 rounded-full shadow-lg">
+                  🌍
+                </span>
+                Connecting people globally with advanced matchmaking technology.
+              </p>
+              <p className="text-gray-700 flex items-center justify-center lg:justify-start gap-4">
+                <span className="bg-secondary text-white p-3 rounded-full shadow-lg">
+                  🤝
+                </span>
+                Building trust with verified profiles and personalized matches.
+              </p>
+            </div>
             <Link
               href="/about"
-              className="px-6 py-2 bg-primary text-white rounded-full hover:bg-accent shadow-md transition duration-300 transform hover:scale-105"
+              className="inline-block mt-4 px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-full shadow-lg hover:opacity-90 transition-all duration-300"
             >
-              Read More
+              Learn More About Us
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Our Specialty Section */}
-      <section className="h-screen py-16 px-4 bg-white flex flex-col items-center justify-center text-center">
-        <h2 className="text-3xl font-bold text-primary mb-8">Our Specialty</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            "Personalized Matchmaking",
-            "Advanced Search Filters",
-            "Verified Profiles",
-          ].map((service, index) => (
-            <div
-              key={index}
-              className="bg-backgroundLight p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
-            >
-              <Image
-                src={`/images/logo-${index + 1}.png`} // Placeholder icons
-                alt={`Service ${index + 1}`}
-                width={80}
-                height={80}
-                className="mx-auto mb-4"
-              />
-              <h3 className="text-xl font-semibold text-dark mb-2">
-                {service}
-              </h3>
-              <p className="text-gray-600">
-                Description of {service}. Highlighting our uniqueness and
-                specialties in providing the best services.
-              </p>
-            </div>
-          ))}
+      {/* Specialty Section */}
+      <section className="relative h-screen px-6 md:px-12 lg:px-20 bg-gradient-to-br from-[#eeeeee] via-[#f9f9f9] to-[#ffffff] rounded-t-3xl overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 -z-10">
+          <div className="bg-gradient-to-r from-[#ffefd5] to-[#ffd1dc] opacity-30 absolute top-8 right-8 w-[300px] h-[300px] rounded-full filter blur-3xl"></div>
+          <div className="bg-gradient-to-b from-[#cce5ff] to-[#e6f7ff] opacity-40 absolute bottom-16 left-16 w-[400px] h-[400px] rounded-full filter blur-2xl"></div>
+        </div>
+
+        {/* Content Container */}
+        <div className="relative z-20 container mx-auto text-center h-full flex flex-col items-center justify-center">
+          {/* Section Heading */}
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6">
+            Our Specialty
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+            We pride ourselves on offering innovative features designed to make
+            your journey seamless, personalized, and secure. Explore what sets
+            us apart.
+          </p>
+
+          {/* Specialties Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              {
+                title: "Personalized Matchmaking",
+                description:
+                  "Experience tailored recommendations designed specifically for you to find the perfect match.",
+                icon: "/images/couple.png", // Placeholder for icon
+              },
+              {
+                title: "Advanced Search Filters",
+                description:
+                  "Filter through profiles with precision using advanced search options that cater to your preferences.",
+                icon: "/images/search1.png", // Placeholder for icon
+              },
+              {
+                title: "Verified Profiles",
+                description:
+                  "Interact with real, verified profiles to ensure authenticity and safety during your search.",
+                icon: "/images/user.png", // Placeholder for icon
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="bg-white p-8 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500 group relative"
+              >
+                {/* Gradient Accent Circle */}
+                <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-br from-primary to-secondary p-4 rounded-full shadow-lg group-hover:scale-110 transition-transform duration-500">
+                  <Image
+                    src={item.icon}
+                    alt={item.title}
+                    width={80}
+                    height={80}
+                    className="rounded-full"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mt-12 mb-4">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
