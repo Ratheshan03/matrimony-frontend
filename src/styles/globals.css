@@ -23,21 +23,28 @@
 /* Scrollbar Styling */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--primary-color) var(--background-light);
+  scrollbar-color: #e4bb36 var(--background-light);
 }
 
 *::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--primary-color);
+  background-color: #012254;
   border-radius: 10px;
 }
 
 *::-webkit-scrollbar-track {
   background: var(--background-light);
-  border-radius: 10px;
+  border-radius: 15px;
+}
+
+*::-webkit-scrollbar:hover {
+  background: #f4a488;
+  cursor: pointer;
 }
 
 /* Basic Typography */

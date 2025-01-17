@@ -33,12 +33,21 @@ const Navbar = () => {
     <header
       className={`${styles.navbar} ${
         isScrolled ? styles.scrolled : ""
-      } fixed top-0 w-full z-50 transition-all`}
+      } fixed top-0 w-full z-50 transition-all duration-300 ease-in-out`}
     >
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         {/* Logo */}
-        <Link href="/" className="text-xl font-semibold text-red-500">
-          Matrimony Site
+        <Link href="/" className="flex items-center space-x-2">
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            width={40}
+            height={40}
+            className="rounded-full hover:scale-110 transition-transform"
+          />
+          <span className="text-xl font-bold text-red-500 hover:text-red-400 transition-colors">
+            Matrimony Site
+          </span>
         </Link>
 
         {/* Main Navigation */}
@@ -46,40 +55,19 @@ const Navbar = () => {
           className={`${styles.navLinks} hidden md:flex space-x-6`}
           aria-label="Main Navigation"
         >
-          <Link
-            href="/"
-            className={pathname === "/" ? styles.activeLink : styles.navLink}
-          >
-            Home
-          </Link>
-          <Link
-            href="/profiles"
-            className={
-              pathname === "/profiles" ? styles.activeLink : styles.navLink
-            }
-          >
-            Profiles
-          </Link>
-          <Link
-            href="/about"
-            className={
-              pathname === "/about" ? styles.activeLink : styles.navLink
-            }
-          >
-            About Us
-          </Link>
-          <Link
-            href="/contact"
-            className={
-              pathname === "/contact" ? styles.activeLink : styles.navLink
-            }
-          >
-            Contact Us
-          </Link>
+          {["/", "/profiles", "/about", "/contact"].map((link, index) => (
+            <Link
+              key={index}
+              href={link}
+              className={pathname === link ? styles.activeLink : styles.navLink}
+            >
+              {link === "/" ? "Home" : link.replace("/", "").toUpperCase()}
+            </Link>
+          ))}
           {isLoggedIn ? (
             <div className="relative">
-              <button className="flex items-center space-x-2">
-                <span>Welcome, {userName}</span>
+              <button className="nav-btn flex items-center space-x-2">
+                <span className="text-gray-300">Welcome, {userName}</span>
                 <Image
                   src="/profile-icon.png"
                   alt="Profile"
@@ -99,7 +87,7 @@ const Navbar = () => {
         {/* Burger Menu Button */}
         <button
           onClick={toggleMenu}
-          className="md:hidden flex items-center focus:outline-none"
+          className="nav-burgerbtn  md:hidden flex items-center focus:outline-none"
           aria-label="Toggle Menu"
         >
           {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -112,38 +100,16 @@ const Navbar = () => {
           menuOpen ? styles.mobileMenuOpen : styles.mobileMenu
         } md:hidden transition-all duration-300 ease-in-out`}
       >
-        <Link
-          href="/"
-          onClick={toggleMenu}
-          className={pathname === "/" ? styles.activeLink : styles.navLink}
-        >
-          Home
-        </Link>
-        <Link
-          href="/profiles"
-          onClick={toggleMenu}
-          className={
-            pathname === "/profiles" ? styles.activeLink : styles.navLink
-          }
-        >
-          Profiles
-        </Link>
-        <Link
-          href="/about"
-          onClick={toggleMenu}
-          className={pathname === "/about" ? styles.activeLink : styles.navLink}
-        >
-          About Us
-        </Link>
-        <Link
-          href="/contact"
-          onClick={toggleMenu}
-          className={
-            pathname === "/contact" ? styles.activeLink : styles.navLink
-          }
-        >
-          Contact Us
-        </Link>
+        {["/", "/profiles", "/about", "/contact"].map((link, index) => (
+          <Link
+            key={index}
+            href={link}
+            onClick={toggleMenu}
+            className={pathname === link ? styles.activeLink : styles.navLink}
+          >
+            {link === "/" ? "Home" : link.replace("/", "").toUpperCase()}
+          </Link>
+        ))}
         {isLoggedIn ? (
           <Link href="/profile" onClick={toggleMenu} className={styles.navLink}>
             Welcome, {userName}
