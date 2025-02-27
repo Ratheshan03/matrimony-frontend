@@ -19,7 +19,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body className="bg-gradient-to-r from-gray-100 via-white to-red-100 min-h-screen flex flex-col">
         <Navbar />
-        {/* Removed container and unnecessary padding to avoid extra margins */}
         <main className="flex-grow">{children}</main>
         <Footer />
       </body>

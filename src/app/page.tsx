@@ -2,219 +2,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import HeroSection from "@/components/Home/HeroSection";
+import AboutUsSection from "@/components/Home/AboutUsSection";
 
 
 export default function HomePage() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section
-        className="relative h-screen flex items-center justify-center text-center bg-cover bg-fixed bg-center"
-        style={{ backgroundImage: 'url("/images/hero.jpg")' }}
-      >
-        {/* Background Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-700 via-pink-500 to-red-400 opacity-75 z-10"></div>
-
-        {/* Floating Decorations */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-white bg-opacity-10 rounded-full blur-lg animate-pulse z-5"></div>
-        <div className="absolute bottom-16 right-20 w-40 h-40 bg-gradient-to-br from-blue-400 to-green-300 rounded-full blur-xl opacity-50 z-5"></div>
-
-        {/* Hero Content */}
-        <div className="relative z-20 max-w-4xl px-6 text-white">
-          <h1 className="text-5xl md:text-8xl font-extrabold leading-tight drop-shadow-lg animate-fadeInUp">
-            Find{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500">
-              Your Soulmate
-            </span>{" "}
-            Here
-          </h1>
-          <p className="mt-6 text-lg md:text-2xl font-light text-gray-200 leading-relaxed animate-fadeInUp delay-200">
-            Join millions on the journey of love. Experience a trusted platform
-            designed for meaningful connections and lifelong happiness.
-          </p>
-          <div className="mt-10 flex flex-col md:flex-row gap-4 items-center justify-center animate-fadeInUp delay-400">
-            <Link
-              href="/register"
-              className="px-8 py-4 bg-gradient-to-r from-purple-600 to-red-500 text-white text-lg font-bold rounded-full shadow-lg hover:opacity-90 hover:scale-105 transform transition duration-300"
-            >
-              Get Started
-            </Link>
-            <Link
-              href="/learn-more"
-              className="px-8 py-4 bg-white bg-opacity-20 text-white text-lg font-bold rounded-full shadow-lg hover:bg-opacity-30 hover:scale-105 transform transition duration-300"
-            >
-              Learn More
-            </Link>
-          </div>
-        </div>
-
-        {/* Scroll Down Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-          <div className="flex flex-col items-center">
-            <span className="text-gray-300 font-light text-sm">
-              Scroll Down
-            </span>
-            <div className="mt-2 w-6 h-6 border-2 border-white rounded-full animate-bounce"></div>
-          </div>
-        </div>
-      </section>
+      <HeroSection/>
 
       {/* About Us Section */}
-      <section
-        className="relative min-h-screen bg-gradient-to-br from-[#f0f4f8] via-[#f9f9ff] to-[#eceef4] overflow-hidden"
-        style={{
-          background: `linear-gradient(to bottom, #f0f4f8, #f9f9ff ${Math.max(
-            0,
-            100 - scrollY * 0.1
-          )}%, #eceef4)`,
-          transition: "background 0.5s ease-in-out",
-        }}
-      >
-        {/* Background Decorations */}
-        <div className="absolute top-0 left-0 w-full h-full -z-10">
-          <div
-            className="absolute top-10 left-20 w-[600px] h-[600px] bg-gradient-to-tr from-pink-400 to-purple-500 rounded-full blur-[120px] opacity-50"
-            style={{
-              transform: `translateY(${scrollY * 0.1}px)`,
-            }}
-          ></div>
-          <div
-            className="absolute bottom-20 right-16 w-[400px] h-[400px] bg-gradient-to-br from-blue-300 to-green-400 rounded-full blur-[80px] opacity-40"
-            style={{
-              transform: `translateY(${scrollY * 0.2}px)`,
-            }}
-          ></div>
-          <div
-            className="absolute bottom-1/2 left-1/3 w-[100px] h-[100px] bg-gradient-to-br from-orange-300 to-red-400 rounded-full blur-[50px] opacity-60"
-            style={{
-              transform: `translateY(${scrollY * 0.15}px)`,
-            }}
-          ></div>
-        </div>
-
-        {/* Main Content */}
-        <div className="container mx-auto px-8 lg:px-16 py-20 space-y-20 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left Column: Image Collage */}
-            <div className="relative grid grid-cols-2 gap-6 lg:gap-10">
-              {/* Main Image */}
-              <div className="col-span-2 relative">
-                <Image
-                  src="/images/aboutus.jpg"
-                  alt="Main About Us"
-                  width={400}
-                  height={400}
-                  className="rounded-3xl shadow-2xl transform transition-transform duration-700 hover:scale-105"
-                />
-              </div>
-
-              {/* Collage Images on Left */}
-              <Image
-                src="/images/about2.jpg"
-                alt="Collage Image 1"
-                width={250}
-                height={250}
-                className="rounded-2xl shadow-lg transform rotate-6 transition-transform duration-500 hover:scale-110"
-              />
-              <Image
-                src="/images/about3.jpg"
-                alt="Collage Image 2"
-                width={250}
-                height={250}
-                className="rounded-2xl shadow-lg -rotate-6 transition-transform duration-500 hover:scale-110"
-              />
-            </div>
-
-            {/* Right Column: Text and Images */}
-            <div className="space-y-8 flex flex-col justify-between relative">
-              {/* Right Column: Images behind text */}
-              <div className="absolute top-0 right-0 w-[400px] h-[500px]">
-                <Image
-                  src="/images/about4.jpg"
-                  alt="Collage Image 4"
-                  width={350}
-                  height={350}
-                  className="rounded-2xl shadow-lg scale-90 transition-transform duration-500 hover:scale-110 rotate-3"
-                />
-              </div>
-              <div className="absolute bottom-0 right-0 w-[300px] h-[300px]">
-                <Image
-                  src="/images/about5.jpg"
-                  alt="Collage Image 5"
-                  width={200}
-                  height={200}
-                  className="rounded-2xl shadow-lg scale-95 transition-transform duration-500 hover:scale-110 -rotate-3"
-                />
-              </div>
-
-              {/* Right Column: Text */}
-              <div className="space-y-8 z-0">
-                <h2 className="text-5xl font-extrabold text-gray-900 tracking-wide leading-tight">
-                  Welcome to <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-red-500">
-                    A Better Connection
-                  </span>
-                </h2>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Discover a world where meaningful relationships thrive. At our
-                  platform, we aim to connect souls, foster friendships, and
-                  help you find genuine love. Experience the next level of
-                  matchmaking.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-center gap-4">
-                    <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-green-400 shadow-lg">
-                      🌍
-                    </div>
-                    <span className="text-gray-700 font-medium">
-                      Connecting people across the globe with cutting-edge
-                      technology.
-                    </span>
-                  </li>
-                  <li className="flex items-center gap-4">
-                    <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-r from-pink-500 to-purple-500 shadow-lg">
-                      🤝
-                    </div>
-                    <span className="text-gray-700 font-medium">
-                      Building trust through verified profiles and secure
-                      interactions.
-                    </span>
-                  </li>
-                  <li className="flex items-center gap-4">
-                    <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-r from-orange-500 to-yellow-400 shadow-lg">
-                      🚀
-                    </div>
-                    <span className="text-gray-700 font-medium">
-                      Empowering you with personalized matches for a better
-                      experience.
-                    </span>
-                  </li>
-                </ul>
-                <div className="mt-6">
-                  <Link
-                    href="/about"
-                    className="px-8 py-4 bg-gradient-to-r from-pink-500 to-red-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
-                  >
-                    Learn More About Us
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <AboutUsSection/>
 
       {/* Specialty Section */}
       <section className="relative h-screen px-6 md:px-12 lg:px-20 bg-gradient-to-br from-[#eeeeee] via-[#f9f9f9] to-[#ffffff] rounded-t-3xl overflow-hidden">
@@ -493,6 +292,238 @@ export default function HomePage() {
           >
             Still have questions? Contact Us
           </Link>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="relative py-24 px-6 md:px-12 lg:px-20 bg-gradient-to-br from-[#f0f9ff] via-[#f7f9fa] to-[#eff6ff] rounded-t-3xl overflow-hidden">
+        {/* Background Decorations */}
+        <div className="absolute inset-0 -z-10">
+          <div className="bg-gradient-to-br from-[#a8d1ff] to-[#6a98e0] opacity-20 absolute top-8 left-16 w-[450px] h-[450px] rounded-full filter blur-3xl"></div>
+          <div className="bg-gradient-to-bl from-[#d5bdfc] to-[#a686f9] opacity-20 absolute bottom-16 right-16 w-[500px] h-[500px] rounded-full filter blur-3xl"></div>
+        </div>
+
+        {/* Content Container */}
+        <div className="container mx-auto text-center relative z-20">
+          <h2 className="text-5xl font-extrabold text-gray-800 mb-12 tracking-wide">
+            How It Works
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-16">
+            Finding your perfect match is easy with our simple 3-step process.
+            Start your journey today!
+          </p>
+
+          {/* Process Steps */}
+          <div className="relative">
+            {/* Connection Line */}
+            <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary transform -translate-y-1/2 hidden md:block"></div>
+
+            {/* Steps */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {[
+                {
+                  step: 1,
+                  title: "Create Your Profile",
+                  description:
+                    "Sign up and build your detailed profile showcasing your personality, interests, and preferences.",
+                  icon: "👤",
+                },
+                {
+                  step: 2,
+                  title: "Discover Matches",
+                  description:
+                    "Browse through curated matches based on your compatibility and preferences.",
+                  icon: "🔍",
+                },
+                {
+                  step: 3,
+                  title: "Connect & Meet",
+                  description:
+                    "Start meaningful conversations and take the next step towards finding love.",
+                  icon: "💕",
+                },
+              ].map((item, index) => (
+                <div key={index} className="relative">
+                  {/* Step Circle */}
+                  <div className="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center shadow-xl z-20 relative border-4 border-white">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-3xl">
+                      {item.icon}
+                    </div>
+                  </div>
+
+                  {/* Step Content */}
+                  <div className="bg-white rounded-xl shadow-lg p-8 mt-6 relative z-10 transform transition-all duration-500 hover:scale-105 hover:shadow-xl">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary text-white flex items-center justify-center font-bold text-lg mb-4 mx-auto">
+                      {item.step}
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Membership Plans Section */}
+      <section className="relative py-24 px-6 md:px-12 lg:px-20 bg-gradient-to-br from-[#fffaf0] via-[#fff5f5] to-[#faf5ff] rounded-t-3xl overflow-hidden">
+        {/* Background Decorations */}
+        <div className="absolute inset-0 -z-10">
+          <div className="bg-gradient-to-br from-[#ffab73] to-[#ffdfba] opacity-20 absolute top-8 left-16 w-[450px] h-[450px] rounded-full filter blur-3xl"></div>
+          <div className="bg-gradient-to-bl from-[#d5bdfc] to-[#a686f9] opacity-20 absolute bottom-16 right-16 w-[500px] h-[500px] rounded-full filter blur-3xl"></div>
+        </div>
+
+        {/* Content Container */}
+        <div className="container mx-auto text-center relative z-20">
+          <h2 className="text-5xl font-extrabold text-gray-800 mb-12 tracking-wide">
+            Membership Plans
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-16">
+            Choose the plan that suits your needs and start your journey to find
+            your perfect match.
+          </p>
+
+          {/* Pricing Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              {
+                name: "Free",
+                price: "0",
+                features: [
+                  "Create a profile",
+                  "Browse profiles",
+                  "Limited search filters",
+                  "View public photos",
+                  "5 likes per day",
+                ],
+                isPopular: false,
+                cta: "Get Started",
+              },
+              {
+                name: "Premium",
+                price: "29.99",
+                features: [
+                  "All Free features",
+                  "Advanced search filters",
+                  "Send unlimited messages",
+                  "View all photos",
+                  "See who viewed your profile",
+                  "Profile highlighting",
+                  "Priority customer support",
+                ],
+                isPopular: true,
+                cta: "Go Premium",
+              },
+              {
+                name: "VIP",
+                price: "49.99",
+                features: [
+                  "All Premium features",
+                  "Personalized matchmaking",
+                  "Profile boosting",
+                  "Video calling",
+                  "Read receipts",
+                  "Exclusive events access",
+                  "Dedicated relationship advisor",
+                ],
+                isPopular: false,
+                cta: "Get VIP Access",
+              },
+            ].map((plan, index) => (
+              <div
+                key={index}
+                className={`relative bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-500 hover:scale-105 ${
+                  plan.isPopular ? "ring-4 ring-primary" : ""
+                }`}
+              >
+                {/* Popular Badge */}
+                {plan.isPopular && (
+                  <div className="absolute top-0 right-0 bg-gradient-to-r from-primary to-secondary text-white px-4 py-1 rounded-bl-lg font-semibold">
+                    Most Popular
+                  </div>
+                )}
+
+                {/* Plan Header */}
+                <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                    {plan.name}
+                  </h3>
+                  <div className="flex items-center justify-center">
+                    <span className="text-2xl font-semibold text-gray-500">
+                      $
+                    </span>
+                    <span className="text-5xl font-bold text-gray-800 mx-2">
+                      {plan.price}
+                    </span>
+                    <span className="text-gray-500">/month</span>
+                  </div>
+                </div>
+
+                {/* Plan Features */}
+                <div className="p-8">
+                  <ul className="space-y-4 mb-8">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-center">
+                        <div className="mr-3 text-primary">✓</div>
+                        <span className="text-gray-600">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA Button */}
+                  <button
+                    className={`w-full py-3 rounded-full font-bold text-lg shadow-lg ${
+                      plan.isPopular
+                        ? "bg-gradient-to-r from-primary to-secondary text-white"
+                        : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+                    } transition-all duration-300`}
+                  >
+                    {plan.cta}
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final Call to Action Section */}
+      <section className="relative py-24 px-6 md:px-12 lg:px-20 bg-gradient-to-r from-primary to-secondary rounded-t-3xl overflow-hidden">
+        {/* Background Decorations */}
+        <div className="absolute inset-0 -z-10">
+          <div className="bg-white opacity-10 absolute top-8 left-16 w-[450px] h-[450px] rounded-full filter blur-3xl"></div>
+          <div className="bg-white opacity-10 absolute bottom-16 right-16 w-[500px] h-[500px] rounded-full filter blur-3xl"></div>
+        </div>
+
+        {/* Content Container */}
+        <div className="container mx-auto text-center relative z-20">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-5xl font-extrabold text-white mb-8 tracking-wide">
+              Ready to Find Your Perfect Match?
+            </h2>
+            <p className="text-xl text-white opacity-90 mb-10">
+              Join thousands of couples who have found love on our platform.
+              Your journey to a meaningful relationship starts now.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link
+                href="/register"
+                className="px-10 py-4 bg-white text-primary font-bold rounded-full shadow-xl hover:bg-opacity-90 transform transition-all duration-300 hover:scale-105"
+              >
+                Get Started Now
+              </Link>
+              <Link
+                href="/success-stories"
+                className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white hover:bg-opacity-10 transform transition-all duration-300 hover:scale-105"
+              >
+                View Success Stories
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>
