@@ -100,7 +100,7 @@ const AboutUsSection = () => {
 
       {/* Main Content with Fade-in Animation */}
       <div
-        className="container mx-auto px-8 lg:px-16 py-10 relative z-10 h-screen flex items-center"
+        className="container mx-auto px-8 lg:px-16 py-10 relative z-10 min-h-screen flex items-center justify-center"
         style={{
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? "translateY(0)" : "translateY(40px)",
@@ -109,7 +109,7 @@ const AboutUsSection = () => {
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
           {/* Left Column: Image Collage */}
-          <div className="relative grid grid-cols-2 gap-4 lg:gap-6 max-w-lg mx-auto">
+          <div className="relative grid grid-cols-2 gap-4 lg:gap-7 max-w-[450px] lg:max-w-[550px] mx-auto">
             {/* Main Image */}
             <div className="col-span-2 relative">
               <Image
@@ -117,7 +117,7 @@ const AboutUsSection = () => {
                 alt="Main About Us"
                 width={500}
                 height={400}
-                className="w-full h-auto object-cover rounded-3xl shadow-2xl transform transition-transform duration-700 hover:scale-105"
+                className="w-full h-auto object-contain rounded-3xl shadow-2xl transform transition-transform duration-700 hover:scale-105"
               />
 
               {/* Simple decoration for main image */}
@@ -125,9 +125,9 @@ const AboutUsSection = () => {
                 className="absolute -top-4 -right-4 w-14 h-14 opacity-60 pointer-events-none"
                 style={{
                   backgroundImage:
-                    "radial-gradient(circle, rgba(236,72,153,0.4) 30%, rgba(236,72,153,0) 70%)",
+                    "radial-gradient(circle, rgba(236,72,153,0.4) 50%, rgba(236,72,153,0) 70%)",
                   filter: "blur(2px)",
-                  animation: "pulse 5s infinite alternate",
+                  animation: "pulse 3s infinite alternate",
                 }}
               ></div>
 
@@ -135,9 +135,9 @@ const AboutUsSection = () => {
                 className="absolute -bottom-4 -left-4 w-12 h-12 opacity-60 pointer-events-none"
                 style={{
                   backgroundImage:
-                    "radial-gradient(circle, rgba(168,85,247,0.4) 30%, rgba(168,85,247,0) 70%)",
+                    "radial-gradient(circle, rgba(168,85,247,0.4) 50%, rgba(168,85,247,0) 70%)",
                   filter: "blur(2px)",
-                  animation: "pulse 6s 1s infinite alternate-reverse",
+                  animation: "pulse 3s 1s infinite alternate-reverse",
                 }}
               ></div>
             </div>
@@ -149,15 +149,15 @@ const AboutUsSection = () => {
                 alt="Collage Image 1"
                 width={180}
                 height={180}
-                className="rounded-2xl shadow-lg transform rotate-6 transition-transform duration-500 hover:scale-110"
+                className="w-full h-auto rounded-2xl shadow-lg transform rotate-6 transition-transform duration-500 hover:scale-110"
               />
 
               {/* Simple decoration */}
               <div
-                className="absolute -top-3 -right-3 w-8 h-8 opacity-60 pointer-events-none"
+                className="absolute -top-3 -right-3 w-10 h-10 opacity-60 pointer-events-none"
                 style={{
                   backgroundImage:
-                    "radial-gradient(circle, rgba(96,165,250,0.4) 30%, rgba(96,165,250,0) 70%)",
+                    "radial-gradient(circle, rgba(96,165,250,0.4) 40%, rgba(96,165,250,0) 70%)",
                   filter: "blur(1px)",
                   animation: "pulse 4s 0.5s infinite alternate",
                 }}
@@ -168,9 +168,9 @@ const AboutUsSection = () => {
               <Image
                 src="/images/about3.jpg"
                 alt="Collage Image 2"
-                width={180}
-                height={180}
-                className="rounded-2xl shadow-lg -rotate-6 transition-transform duration-500 hover:scale-110"
+                width={160}
+                height={160}
+                className="w-full h-auto rounded-2xl shadow-lg -rotate-6 transition-transform duration-500 hover:scale-110 ml-1"
               />
 
               {/* Simple decoration */}
