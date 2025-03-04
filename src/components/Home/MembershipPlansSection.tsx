@@ -22,7 +22,7 @@ const MembershipPlansSection = () => {
     {
       name: "Basic",
       description: "Essential features to begin your matrimonial journey",
-      price: "₹1,999",
+      price: "Rs 1,999",
       duration: "3 months",
       color: "from-blue-400 to-blue-600",
       icon: <Shield size={24} />,
@@ -39,7 +39,7 @@ const MembershipPlansSection = () => {
     {
       name: "Premium",
       description: "Our most popular plan for serious matrimonial seekers",
-      price: "₹4,999",
+      price: "Rs 4,999",
       duration: "6 months",
       color: "from-primary to-secondary",
       icon: <Crown size={24} />,
@@ -56,7 +56,7 @@ const MembershipPlansSection = () => {
     {
       name: "Royal",
       description: "VIP service with personalized assistance and priority",
-      price: "₹9,999",
+      price: "Rs 9,999",
       duration: "12 months",
       color: "from-purple-600 to-indigo-600",
       icon: <Sparkles size={24} />,
@@ -111,7 +111,7 @@ const MembershipPlansSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 px-6 md:px-12 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100"
+      className="relative py-16 px-6 md:px-12 overflow-hidden"
     >
       {/* Floating Decorative Elements */}
       {decorations.map((decoration) => (
