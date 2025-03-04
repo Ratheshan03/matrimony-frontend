@@ -1,18 +1,29 @@
 .navbar {
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.3), rgba(242, 81, 81, 0.6), rgba(0, 0, 0, 0.3));
-  backdrop-filter: blur(10px);
+  background: linear-gradient(90deg, rgba(255, 159, 28, 0.2), rgba(255, 191, 105, 0.4), rgba(255, 159, 28, 0.2));
+  backdrop-filter: blur(12px);
   position: fixed;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  box-shadow: 0px 2px 15px rgba(255, 159, 28, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
 .scrolled {
-  background: linear-gradient(90deg, rgba(221, 175, 22, 0.514), rgba(250, 189, 23, 0.932), rgba(221, 175, 22, 0.514));
+  background: linear-gradient(90deg, rgba(247, 202, 136, 0.7), rgba(255, 190, 105, 0.932), rgba(255, 160, 28, 0.966));
+  box-shadow: 0px 4px 20px rgba(255, 159, 28, 0.2);
 }
 
-.navLinks {
-  display: flex;
-  gap: 1.5rem;
+.pulseAnimation {
+  animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(255, 107, 53, 0);
+  }
 }
 
 .navLink {
@@ -21,50 +32,29 @@
   font-weight: 500;
   text-transform: uppercase;
   position: relative;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
 }
 
-.navLink:hover {
-  color: #ff4d4d;
+.signInButton {
+  transition: all 0.3s ease;
+  transform-origin: center;
 }
 
-.navLink::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #ff4d4d;
-  transition: width 0.3s ease-in-out;
-}
-
-.navLink:hover::after {
-  width: 100%;
-}
-
-.activeLink {
-  color: #fad07d;
-  text-shadow: #4c0e07 1px 1px 1px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.mobileMenu {
-  display: none;
-  flex-direction: column;
-  gap: 1rem;
-  background: rgba(0, 0, 0, 0.9);
-  padding: 2rem;
-  border-radius: 8px;
-}
-
-.mobileMenuOpen {
-  display: flex;
+.signInButton:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(to right, #ffcfbd, #fabc65);
 }
 
 @media (min-width: 768px) {
   .mobileMenu {
     display: none !important;
+  }
+}
+
+/* Added mobile responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 0;
   }
 }

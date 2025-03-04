@@ -199,7 +199,7 @@ const FAQSection = () => {
           transition={{ duration: 0.7 }}
         >
           <h2 className="text-4xl md:text-6xl font-extrabold mb-5 tracking-wide">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-red-400">
               FAQs
             </span>
           </h2>
@@ -340,7 +340,7 @@ const FAQSection = () => {
 
         {/* Still Have Questions */}
         <motion.div
-          className="mt-16 text-center bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl p-8 max-w-4xl mx-auto"
+          className="mt-16 text-center bg-gradient-to-r from-red-500/20 to-secondary/5 rounded-3xl p-8 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.5 }}
@@ -355,7 +355,7 @@ const FAQSection = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <motion.a
               href="/contact"
-              className="py-3 px-6 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-medium shadow-md flex items-center justify-center gap-2 hover:from-primary/60 hover:to-primary/40 transition-all duration-300"
+              className="py-3 px-6 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-medium shadow-md flex items-center justify-center gap-2 hover:from-primary/60 hover:to-primary/40 hover:text-gray-500 transition-all duration-300"
               whileHover={{
                 scale: 1.03,
                 boxShadow:
