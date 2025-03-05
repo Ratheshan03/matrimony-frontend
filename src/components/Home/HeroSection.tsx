@@ -2,34 +2,94 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+const BACKGROUND_IMAGES = [
+  "/images/hero.jpg",
+  "/images/hero-2.jpg",
+  "/images/hero-3.jpg",
+  "/images/hero-4.jpg",
+  "/images/hero-5.jpg",
+];
+
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [currentBackgroundIndex, setCurrentBackgroundIndex] = useState(0);
 
+  // Generate multiple decorative ping elements
+  const generatePingElements = () => {
+    const elements = [];
+    const positions = [
+      { top: "10%", left: "5%" },
+      { top: "20%", right: "10%" },
+      { bottom: "15%", left: "15%" },
+      { top: "30%", right: "25%" },
+      { bottom: "25%", left: "30%" },
+      { top: "40%", right: "40%" },
+      { bottom: "35%", left: "50%" },
+      { top: "50%", right: "60%" },
+      { bottom: "45%", left: "70%" },
+      { top: "60%", right: "80%" },
+    ];
+
+    const colors = [
+      "bg-white",
+      "bg-yellow-300",
+      "bg-red-300",
+      "bg-blue-300",
+      "bg-green-300",
+      "bg-purple-300",
+    ];
+
+    positions.forEach((pos, index) => {
+      elements.push(
+        <div
+          key={`ping-${index}`}
+          className={`absolute w-2 h-2 ${
+            colors[index % colors.length]
+          } rounded-full animate-ping`}
+          style={{
+            ...pos,
+            animationDelay: `${index * 100}ms`,
+          }}
+        />
+      );
+    });
+
+    return elements;
+  };
+
+  // Implement background image carousel
   useEffect(() => {
     setIsLoaded(true);
+
+    const imageCarousel = setInterval(() => {
+      setCurrentBackgroundIndex(
+        (prevIndex) => (prevIndex + 1) % BACKGROUND_IMAGES.length
+      );
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(imageCarousel);
   }, []);
 
   return (
     <section
-      className="relative h-screen flex items-center justify-center text-center bg-cover bg-center overflow-hidden"
-      style={{ backgroundImage: 'url("/images/hero.jpg")' }}
+      className="relative h-screen flex items-center justify-center text-center bg-cover bg-center overflow-hidden transition-all duration-1000"
+      style={{
+        backgroundImage: `url(${BACKGROUND_IMAGES[currentBackgroundIndex]})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
     >
-      {/* Background Overlay with slightly improved gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-800/80 via-pink-600/80 to-red-500/80 z-10"></div>
+      {/* Background Overlay with improved gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-800/80 via-pink-600/80 to-red-500/80 z-10 transition-opacity duration-1000"></div>
 
-      {/* Subtle Pattern Overlay */}
-      <div className="absolute inset-0 bg-[url('/patterns/hearts-pattern.svg')] bg-repeat opacity-5 z-10"></div>
+      {/* Scattered Ping Elements */}
+      {generatePingElements()}
 
       {/* Floating Decorations */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-white bg-opacity-10 rounded-full blur-lg animate-pulse z-5"></div>
       <div className="absolute bottom-16 right-20 w-40 h-40 bg-gradient-to-br from-blue-400 to-green-300 rounded-full blur-xl opacity-50 z-5"></div>
 
-      {/* Small Decorative Elements */}
-      <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-white rounded-full animate-ping"></div>
-      <div className="absolute bottom-1/3 left-1/4 w-2 h-2 bg-yellow-300 rounded-full animate-ping animation-delay-700"></div>
-      <div className="absolute top-1/3 left-1/5 w-2 h-2 bg-red-300 rounded-full animate-ping animation-delay-1500"></div>
-
-      {/* Hero Content */}
+      {/* Rest of the existing Hero Content remains the same */}
       <div
         className={`relative z-20 max-w-4xl px-6 text-white transition-all duration-1000 transform ${
           isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
