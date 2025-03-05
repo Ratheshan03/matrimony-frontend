@@ -1,33 +1,60 @@
 .footer {
+  background: linear-gradient(to right, #1f2937, #000000, #1f2937);
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.footer-container h2 {
-  background: linear-gradient(to right, #f87171, #3b82f6);
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center, 
+    rgba(255, 107, 53, 0.1) 0%, 
+    transparent 70%
+  );
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #FF6B35, #FF9F1C);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.footer-container a:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 1rem;
+  }
 }
 
-.footer-container h3 {
-  background: linear-gradient(to right, #f87171, #3b82f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Refined hover and transition effects */
+.footer a {
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-.footer .legal-section {
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+.footer a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #FF6B35;
+  transition: width 0.3s ease;
 }
 
-.footer-container a {
-  color: #ffffff;
+.footer a:hover::after {
+  width: 100%;
+}
+
+.footer a:hover {
+  color: #FFBF69; 
+  transform: translateY(-2px);
 }

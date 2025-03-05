@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import "../styles/globals.css";
+import ScrollToTopButton from "@/components/GoToTop";
 
 const metadata: Metadata = {
   title: "Matrimony Site",
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className="bg-gradient-to-r from-gray-100 via-white to-red-100 min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow">{children}</main>
+        <ScrollToTopButton />
         <Footer />
       </body>
     </html>
