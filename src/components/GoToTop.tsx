@@ -8,7 +8,7 @@ const ScrollToTopButton = () => {
 
   const toggleVisibility = () => {
     // You can adjust the scroll threshold as needed
-    if (window.scrollY > 300) {
+    if (window.scrollY > 1200) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -19,6 +19,7 @@ const ScrollToTopButton = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
+
     });
   };
 

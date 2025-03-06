@@ -65,7 +65,7 @@ const HeroSection = () => {
       setCurrentBackgroundIndex(
         (prevIndex) => (prevIndex + 1) % BACKGROUND_IMAGES.length
       );
-    }, 5000); // Change image every 5 seconds
+    }, 10000);
 
     return () => clearInterval(imageCarousel);
   }, []);
