@@ -111,7 +111,7 @@ const Navbar = () => {
               </Link>
             ) : (
               <Link
-                href="/login"
+                href="/auth/login"
                 className={`flex items-center space-x-3 px-7 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-full 
                 ${styles.signInButton} ${styles.pulseAnimation}
                 text-xl font-medium tracking-wide transition-all duration-300`}

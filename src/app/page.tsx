@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import HeroSection from "@/components/Home/HeroSection";
 import AboutUsSection from "@/components/Home/AboutUsSection";
