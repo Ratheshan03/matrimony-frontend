@@ -154,6 +154,7 @@ const RegisterForm: React.FC = () => {
       exit="exit"
       variants={containerVariants}
     >
+      
       <div className="relative h-2 bg-gray-100">
         <motion.div
           className="absolute h-full bg-gradient-to-r from-pink-500 to-purple-600"
